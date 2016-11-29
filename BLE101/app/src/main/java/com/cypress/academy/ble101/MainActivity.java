@@ -69,11 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Variables to access objects from the layout such as buttons, switches, values
     private static TextView mCapsenseValue;
-    private static Button start_button;
-    private static Button search_button;
-    private static Button connect_button;
-    private static Button discover_button;
-    private static Button disconnect_button;
     private static Switch led_switch;
     private static Switch cap_switch;
 
@@ -140,11 +135,6 @@ public class MainActivity extends AppCompatActivity {
         mCapsenseValue = (TextView) findViewById(R.id.capsense_value);
 
         // Set up variables for accessing buttons and slide switches
-        start_button = (Button) findViewById(R.id.start_button);
-        search_button = (Button) findViewById(R.id.search_button);
-        connect_button = (Button) findViewById(R.id.connect_button);
-        discover_button = (Button) findViewById(R.id.discoverSvc_button);
-        disconnect_button = (Button) findViewById(R.id.disconnect_button);
         led_switch = (Switch) findViewById(R.id.led_switch);
         cap_switch = (Switch) findViewById(R.id.capsense_switch);
         connect_device_button = (Button) findViewById(R.id.connect_device_button);
@@ -317,51 +307,51 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view the view object
      */
-    public void searchBluetooth(View view) {
+/*    public void searchBluetooth(View view) {
         if(mServiceConnected) {
             mBleService.scan();
-        }
+        }*/
 
         /* After this we wait for the scan callback to detect that a device has been found */
         /* The callback broadcasts a message which is picked up by the mGattUpdateReceiver */
-    }
+//    }
 
     /**
      * This method handles the Connect to Device button
      *
      * @param view the view object
      */
-    public void connectBluetooth(View view) {
+/*    public void connectBluetooth(View view) {
         mBleService.connect();
-
+*/
         /* After this we wait for the gatt callback to report the device is connected */
         /* That event broadcasts a message which is picked up by the mGattUpdateReceiver */
-    }
+//    }
 
     /**
      * This method handles the Discover Services and Characteristics button
      *
      * @param view the view object
      */
-    public void discoverServices(View view) {
+//    public void discoverServices(View view) {
         /* This will discover both services and characteristics */
-        mBleService.discoverServices();
+//        mBleService.discoverServices();
 
         /* After this we wait for the gatt callback to report the services and characteristics */
         /* That event broadcasts a message which is picked up by the mGattUpdateReceiver */
-    }
+//    }
 
     /**
      * This method handles the Disconnect button
      *
      * @param view the view object
      */
-     public void Disconnect(View view) {
-        mBleService.disconnect();
+//     public void Disconnect(View view) {
+//        mBleService.disconnect();
 
         /* After this we wait for the gatt callback to report the device is disconnected */
         /* That event broadcasts a message which is picked up by the mGattUpdateReceiver */
-    }
+//    }
 
     public void findAndConnectToDevice(View view) {
         startBluetooth(view);
@@ -397,9 +387,6 @@ public class MainActivity extends AppCompatActivity {
                     /* action when sending Capsense notifications */
                     if (!mConnectState) {
                         // Disable the connect button, enable the discover services and disconnect buttons
-                        //connect_button.setEnabled(false);
-                        //discover_button.setEnabled(true);
-                        //disconnect_button.setEnabled(true);
                         vibIntensitySpinner.setEnabled(true);
                         vibIntensitySpinner.setClickable(true);
                         mConnectState = true;
@@ -411,10 +398,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                 case com.cypress.academy.ble101.mBleService.ACTION_DISCONNECTED:
-                    // Disable the disconnect, discover svc, discover char button, and enable the search button
-                    //disconnect_button.setEnabled(false);
-                    //discover_button.setEnabled(false);
-                    //search_button.setEnabled(true);
                     // Turn off and disable the LED and CapSense switches
                     led_switch.setChecked(false);
                     led_switch.setEnabled(false);
@@ -432,8 +415,6 @@ public class MainActivity extends AppCompatActivity {
                     connect_device_button.setEnabled(true);
                     break;
                 case com.cypress.academy.ble101.mBleService.ACTION_SERVICES_DISCOVERED:
-                    // Disable the discover services button
-                    //discover_button.setEnabled(false);
                     // Enable the LED and CapSense switches
                     led_switch.setEnabled(true);
                     cap_switch.setEnabled(true);

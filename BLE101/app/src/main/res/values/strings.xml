@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BLE101</string>
+    <string name="app_name">Control Panel</string>
 
     <string name="Start">Start Bluetooth</string>
     <string name="Search">Search for Device</string>

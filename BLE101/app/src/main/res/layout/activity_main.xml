@@ -105,72 +105,22 @@ http://www.cypress.com/products/bluetooth-low-energy-ble
             android:layout_height="wrap_content"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:paddingTop="12dp" />
+            android:paddingTop="20dp" />
 
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/vibrateIntensityTitle"
+            android:layout_toEndOf="@+id/capsense_header"
             android:id="@+id/vibrate_intensity_spinner"
             android:layout_below="@+id/capsense_switch"
-            android:paddingTop="12dp"
+            android:paddingTop="20dp"
             android:enabled="false"
             android:clickable="false"
             android:layout_alignTop="@+id/vibrateIntensityTitle"
             android:layout_alignBottom="@+id/vibrateIntensityTitle" />
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/start_button"
-        android:text="@string/Start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:enabled="true"
-        android:onClick="startBluetooth"
-        />
-
-    <Button
-        android:id="@+id/search_button"
-        android:text="@string/Search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:enabled="false"
-        android:onClick="searchBluetooth"
-        />
-
-    <Button
-        android:id="@+id/connect_button"
-        android:text="@string/Connect"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:enabled="false"
-        android:onClick="connectBluetooth"
-        />
-
-    <Button
-        android:id="@+id/discoverSvc_button"
-        android:text= "@string/DiscoverServices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:enabled="false"
-        android:onClick="discoverServices"
-        />
-
-    <Button
-        android:id="@+id/disconnect_button"
-        android:text="@string/Disconnect"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:enabled="false"
-        android:onClick="Disconnect"
-        />
 
 
 </LinearLayout>

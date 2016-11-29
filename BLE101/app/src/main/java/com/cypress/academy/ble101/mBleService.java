@@ -73,7 +73,7 @@ import java.util.UUID;
 public class mBleService extends Service {
     private final static String TAG = mBleService.class.getSimpleName();
 
-    private static final long SCAN_PERIOD = 10000;
+    private static final long SCAN_PERIOD = 5000;
 
     private Handler mHandler;
 
@@ -325,14 +325,14 @@ public class mBleService extends Service {
      * {@code BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt, int, int)}
      * callback.
      */
-    public void disconnect() {
+/*    public void disconnect() {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Log.w(TAG, "BluetoothAdapter not initialized");
             return;
         }
         mBluetoothGatt.disconnect();
     }
-
+*/
     /**
      * After using a given BLE device, the app must call this method to ensure resources are
      * released properly.
@@ -505,7 +505,6 @@ public class mBleService extends Service {
                     UUID.fromString(vibIntensityCharacteristicUUID));
             mAlarmCharacteristic = mService.getCharacteristic(UUID.fromString(alarmCharacteristicUUID));
             mAlarmCharacteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
-
 
             /* Get the CapSense CCCD */
             mCapSenseCccd = mCapsenseCharacteristic.getDescriptor(UUID.fromString(CccdUUID));
